@@ -19,10 +19,11 @@ async def connect(sid, environ):
 async def message(sid, message):
     print('Socket ID:', sid)
     print(message)
-    await sio.emit('message', message, broadcast=True)
+
+    await sio.emit('message', message)
 
 
 if __name__ == '__main__':
     # Run the combined ASGI app (Socket.IO + FastAPI)
     # Note: uvicorn can take an ASGI app instance directly.
-    uvicorn.run(app, host='127.0.0.1', port=4000)
+    uvicorn.run(app, host='0.0.0.0', port=4000)
