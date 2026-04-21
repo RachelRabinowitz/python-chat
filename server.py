@@ -17,7 +17,7 @@ async def connect(sid, environ):
 
 @sio.on('message')
 async def message(sid, message):
-    print('Socket ID: ', sid)
+    print('Socket ID:', sid)
     print(message)
 
     await sio.emit('message', message)
